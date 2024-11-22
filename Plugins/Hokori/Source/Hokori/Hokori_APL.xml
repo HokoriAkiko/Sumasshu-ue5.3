@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <proguardAdditions>
+    <insert>
+    </insert>
+  </proguardAdditions>
+
+  <androidManifestUpdates>
+    <addPermission android:name="android.permission.VIBRATE" />
+  </androidManifestUpdates>
+
+  <gameActivityImportAdditions>
+    <insert>
+      import android.os.Vibrator;
+      import android.os.VibrationEffect;
+    </insert>
+  </gameActivityImportAdditions>
+
+  <gameActivityOnCreateAdditions>
+    <insert>
+      hokoriVibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+    </insert>
+  </gameActivityOnCreateAdditions>
+
+  <gameActivityClassAdditions>
+    <insert>
+      private Vibrator hokoriVibrator;
+      public void game_activity_handle_vibration(){hokoriVibrator.vibrate(VibrationEffect.createOneShot(50, 225));}
+    </insert>
+  </gameActivityClassAdditions>
+  
+  
+</root>
